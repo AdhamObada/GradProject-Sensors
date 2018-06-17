@@ -25,8 +25,3 @@ void UART_OutChar(char data){  //sends character
   while((UART3_FR_R&UART_FR_TXFF) != 0);
   UART3_DR_R = data;
 }
-
-void send_short (short num){
-    UART_OutChar(num&0xFF);
-    UART_OutChar((num>>8)&0xFF);
-}

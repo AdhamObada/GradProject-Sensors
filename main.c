@@ -9,18 +9,19 @@
 #include "UART.h"
 void SystemInit(void){
 }
-short result;
-short key=1234;
+char result;
+char key=120;
 int main(void)
 {
     ADCinit();
     GPTinit();
+    UARTinit();
     while(1){
         while(!(TIMER0_RIS_R&(1<<0)));
         TIMER0_ICR_R |= (1<<0);
         result=((ADC1_SSFIFO3_R&(0xFFF))*150*3.3)/(1.5*4095);
         reuslt ^= key;
-        send_short(result);
+        UART_OutChar(result);
     }
 	return 0;
 }

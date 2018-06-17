@@ -10,7 +10,6 @@
 
 void UARTinit();
 void UART_OutChar(char data);
-void send_short (short num);
 
 
 
